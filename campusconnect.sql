@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2026 at 03:51 PM
+-- Generation Time: May 11, 2026 at 06:00 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -123,7 +123,22 @@ INSERT INTO `activity_log` (`id`, `user_id`, `activity`, `created_at`) VALUES
 (69, 3, 'Logged out', '2026-03-15 18:29:17'),
 (70, 1, 'Logged out', '2026-03-15 19:26:23'),
 (71, 1, 'Logged out', '2026-03-15 19:37:26'),
-(72, 3, 'Logged out', '2026-03-15 19:38:53');
+(72, 3, 'Logged out', '2026-03-15 19:38:53'),
+(73, 1, 'Logged out', '2026-04-30 15:45:14'),
+(74, 5, 'Logged out', '2026-04-30 15:46:08'),
+(75, 1, 'Logged out', '2026-04-30 15:46:50'),
+(76, 5, 'Logged out', '2026-04-30 15:47:10'),
+(77, 1, 'Logged out', '2026-04-30 15:49:01'),
+(78, 1, 'Logged out', '2026-04-30 16:48:03'),
+(79, 1, 'Logged out', '2026-04-30 17:03:28'),
+(80, 1, 'Logged out', '2026-04-30 17:04:00'),
+(81, 2, 'Logged out', '2026-05-08 16:13:34'),
+(82, 6, 'Logged out', '2026-05-08 16:17:42'),
+(83, 7, 'Logged out', '2026-05-08 16:21:54'),
+(84, 1, 'Logged out', '2026-05-08 16:24:05'),
+(85, 8, 'Logged out', '2026-05-08 16:26:01'),
+(86, 1, 'Logged out', '2026-05-08 16:29:43'),
+(87, 9, 'Logged out', '2026-05-08 16:34:15');
 
 -- --------------------------------------------------------
 
@@ -153,7 +168,14 @@ INSERT INTO `admin_notifications` (`id`, `created_at`, `user_id`, `action`, `ref
 (7, '2026-03-15 08:48:25', 3, 'registered_event', 4),
 (8, '2026-03-15 09:18:12', 3, 'registered_event', 3),
 (9, '2026-03-15 14:08:07', 3, 'joined_club', 3),
-(10, '2026-03-15 14:08:09', 3, 'registered_event', 5);
+(10, '2026-03-15 14:08:09', 3, 'registered_event', 5),
+(11, '2026-04-30 10:07:55', 1, 'joined_club', 2),
+(12, '2026-04-30 10:17:06', 5, 'joined_club', 1),
+(13, '2026-04-30 10:17:06', 5, 'joined_club', 2),
+(14, '2026-05-04 11:24:06', 1, 'joined_club', 5),
+(15, '2026-05-08 10:42:29', 2, 'joined_club', 2),
+(16, '2026-05-08 10:42:32', 2, 'joined_club', 1),
+(17, '2026-05-08 10:42:47', 2, 'joined_club', 4);
 
 -- --------------------------------------------------------
 
@@ -193,14 +215,6 @@ CREATE TABLE `assignment_submissions` (
   `file_path` varchar(255) NOT NULL,
   `submitted_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `assignment_submissions`
---
-
-INSERT INTO `assignment_submissions` (`id`, `assignment_id`, `student_id`, `file_path`, `submitted_at`) VALUES
-(3, 5, 3, 'uploads/assignments/student_3_assignment_5_1773579442.pdf', '2026-03-15 18:27:22'),
-(4, 3, 3, 'uploads/assignments/student_3_assignment_3_1773579553.pdf', '2026-03-15 18:29:13');
 
 -- --------------------------------------------------------
 
@@ -247,7 +261,14 @@ INSERT INTO `club_members` (`id`, `club_id`, `user_id`, `joined_at`) VALUES
 (1, 1, 1, '2026-03-08 13:43:28'),
 (2, 1, 3, '2026-03-08 13:44:34'),
 (3, 2, 3, '2026-03-08 14:10:14'),
-(4, 3, 3, '2026-03-15 19:38:07');
+(4, 3, 3, '2026-03-15 19:38:07'),
+(5, 2, 1, '2026-04-30 15:37:55'),
+(6, 1, 5, '2026-04-30 15:47:06'),
+(7, 2, 5, '2026-04-30 15:47:06'),
+(8, 5, 1, '2026-05-04 16:54:06'),
+(9, 2, 2, '2026-05-08 16:12:29'),
+(10, 1, 2, '2026-05-08 16:12:32'),
+(11, 4, 2, '2026-05-08 16:12:47');
 
 -- --------------------------------------------------------
 
@@ -326,12 +347,7 @@ INSERT INTO `event_registrations` (`id`, `event_id`, `student_id`, `registered_a
 (2, 1, 1, '2026-03-05 19:45:15'),
 (3, 5, 1, '2026-03-05 19:45:40'),
 (4, 4, 1, '2026-03-07 11:57:33'),
-(5, 1, 3, '2026-03-08 22:27:27'),
-(6, 2, 3, '2026-03-08 22:40:37'),
-(7, 3, 1, '2026-03-10 15:52:45'),
-(8, 4, 3, '2026-03-15 14:18:25'),
-(9, 3, 3, '2026-03-15 14:48:12'),
-(10, 5, 3, '2026-03-15 19:38:09');
+(7, 3, 1, '2026-03-10 15:52:45');
 
 -- --------------------------------------------------------
 
@@ -483,7 +499,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `department` varchar(100) DEFAULT NULL,
   `year` varchar(50) DEFAULT NULL,
-  `profile_pic` varchar(255) DEFAULT 'default.png',
+  `profile_pic` longblob DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `phone` varchar(20) DEFAULT NULL,
   `dob` date DEFAULT NULL,
@@ -495,9 +511,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role`, `fullname`, `email`, `password`, `department`, `year`, `profile_pic`, `created_at`, `phone`, `dob`, `class_year`) VALUES
-(1, 'admin', 'Brunga Rao', 'brungarao2004@gmail.com', '$2y$10$bpQrDJ9LxLt2JifVFZmqNO77w.EE/iivRg17P2om/Bx9mRwAMvU0C', 'Computer Science', '3rd Year', 'uploads/profile_pics/user_1.jpeg', '2026-03-02 16:04:06', '9483083934', '2004-12-14', '3'),
-(2, 'student', 'Pavan Kalyan.N', 'pavann206kalyann@gmail.com', '$2y$10$ZBObJQvlOE60L5aM0TPZBulQ4xf2SvqowZ5u..gcwo2VBojSv9yFm', 'Computer Science', '1st Year', 'default.png', '2026-03-07 06:49:41', NULL, NULL, NULL),
-(3, 'student', 'Suresh Rao', 'suresh@gmail.com', '$2y$10$PQpo1om7g3N7iLD8L60L..CMB0lIWmvUz1FM7RYMlA1L6qJm4QxYO', 'BCA', '2nd Year', 'uploads/profile_pics/user_3.jpg', '2026-03-07 17:43:58', '7892733060', '2004-07-29', '2');
+(1, 'admin', 'Brunga S Rao', 'brungarao2004@gmail.com', '$2y$10$bpQrDJ9LxLt2JifVFZmqNO77w.EE/iivRg17P2om/Bx9mRwAMvU0C', 'BCA', '3rd Year', 0x75706c6f6164732f70726f66696c655f706963732f757365725f312e6a706567, '2026-03-02 16:04:06', '9483083934', '2004-12-14', '3'),
+(2, 'student', 'Pavan Kalyan.N', 'pavann206kalyann@gmail.com', '$2y$10$ZBObJQvlOE60L5aM0TPZBulQ4xf2SvqowZ5u..gcwo2VBojSv9yFm', 'BCA', '1st Year', 0x75706c6f6164732f70726f66696c655f706963732f757365725f322e6a7067, '2026-03-07 06:49:41', '8310066760', '2005-09-06', '1'),
+(3, 'student', 'Madhan N', 'madhan@gmail.com', '$2y$10$sHk9Q0iypZXdh2G2jCJ1gOdFcMWxdSpp13tNkANoG9T0jVClOLOHC', 'BCOM', '1st Year', 0x75706c6f6164732f70726f66696c655f706963732f757365725f362e706e67, '2026-05-08 10:44:49', '9901040623', '2007-01-07', '1'),
+(4, 'student', 'JeevaJith', 'jeevajith@gmail.com', '$2y$10$Nwk5GLJSjAV5mniLkSmFGOieLn813AfG9r5LjXlLkWNm76vqE3uHK', 'BCA', '1st Year', 0x75706c6f6164732f70726f66696c655f706963732f757365725f372e706e67, '2026-05-08 10:50:27', '6362109630', '2007-07-02', '1'),
+(5, 'student', 'Abhishek', 'abhishek@gmail.com', '$2y$10$Oh.uKagMZ7M9azLpVM8C0uSy4XW7tK215jm/4b0FJzE75/alMVwji', 'BCA', '1st Year', 0x75706c6f6164732f70726f66696c655f706963732f757365725f382e706e67, '2026-05-08 10:55:06', '9972234447', '2007-06-28', '1'),
+(6, 'student', 'Pooja B M', 'poojabm@gmail.com', '$2y$10$Zox7eH.oenT4qbj1j6xewupoTcYaP1V6Kar1CpHWv4cwzog3D7lRO', 'BCA', '3rd Year', 0x75706c6f6164732f70726f66696c655f706963732f757365725f392e706e67, '2026-05-08 11:00:12', '9535053849', '2005-07-14', '3');
 
 --
 -- Indexes for dumped tables
@@ -630,13 +649,13 @@ ALTER TABLE `academics`
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `admin_notifications`
 --
 ALTER TABLE `admin_notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `assignments`
@@ -660,7 +679,7 @@ ALTER TABLE `clubs`
 -- AUTO_INCREMENT for table `club_members`
 --
 ALTER TABLE `club_members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `courses`
@@ -720,7 +739,7 @@ ALTER TABLE `timetable`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
